@@ -11,11 +11,11 @@ pca = joblib.load('pca.joblib')
 st.title("Credit Card Fraud Detection")
 
 # File upload
-uploaded_file = st.file_uploader("Upload a file containing credit card transactions", type="excel")
+uploaded_file = st.file_uploader("Upload a file containing credit card transactions", type="csv")
 
 if uploaded_file is not None:
     # Read the uploaded file
-    new_data = pd.read_excel(uploaded_file)
+    new_data = pd.read_csv(uploaded_file)
     
     # Detect fraud
     frauds = detect_fraud(new_data, model, scaler, pca)
